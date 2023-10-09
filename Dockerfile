@@ -11,3 +11,4 @@ RUN sudo bash install.sh aapanel
 EXPOSE 8888
 
 CMD ["nginx"]
+
