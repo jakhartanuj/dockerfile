@@ -1,20 +1,13 @@
-# Use an official Ubuntu as the base image
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
-# Install necessary packages (wget and sudo)
-RUN apt-get update && apt-get install -y wget sudo
+RUN apt-get update && apt-get install -y wget
 
-# Download the install script and execute it
-RUN wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && \
-    chmod +x install.sh && \
-    sudo bash install.sh aapanel
+RUN wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh
 
-# Cleanup after the installation (optional)
-RUN rm install.sh && \
-    apt-get clean
+RUN chmod +x install.sh
 
-# Start your application (if needed)
-# CMD ["/path/to/your/application"]
+RUN sudo bash install.sh aapanel
 
-# Expose any necessary ports (if needed)
-# EXPOSE 80
+EXPOSE 8888
+
+CMD ["nginx"]
