@@ -12,6 +12,6 @@ RUN chmod +x install.sh
 
 RUN sudo bash install.sh aapanel
 
-EXPOSE 8888
+EXPOSE 8080
 
 CMD ["nginx"]
